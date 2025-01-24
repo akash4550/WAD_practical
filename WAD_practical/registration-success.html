@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success</title>
+</head>
+<body>
+    <h1>Registration Details</h1>
+    <div id="user-details"></div>
+
+    <script>
+        // Retrieve stored user details from localStorage
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
+        if (userDetails) {
+            // Display the details on the page
+            document.getElementById("user-details").innerHTML = `
+                <p><strong>Name:</strong> ${userDetails.name}</p>
+                <p><strong>Email:</strong> ${userDetails.email}</p>
+                <p><strong>Password:</strong> ${userDetails.password}</p> <!-- Avoid showing password in real apps -->
+            `;
+        } else {
+            document.getElementById("user-details").innerHTML = "<p>No registration details found.</p>";
+        }
+    </script>
+</body>
+</html>
